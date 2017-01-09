@@ -2,7 +2,6 @@
 
 const router = require('express').Router();
 
-const boom = require('boom');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 
