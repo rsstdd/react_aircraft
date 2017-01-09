@@ -40,15 +40,17 @@ app.use((req, res, next) => { // starts with api or the path is not specified. p
   res.sendStatus(406);
 });
 
-// const users = require('./routes/users');
-// const token = require('./routes/token');
-// const favorites = require('./routes/favorites');
-// const airplanes = require('./routes/airplanes');
-//
-// app.use(users);
-// app.use(token);
-// app.use(favorites);
-// app.use(airplanes);
+const users = require('./routes/users');
+const auth = require('./routes/auth');
+const favorites = require('./routes/favorites');
+const airplanes = require('./routes/airplanes');
+const me = require('./routes/me');
+
+app.use('/api', users);
+app.use('/auth', auth);
+app.use('/api', favorites);
+app.use('/api', airplanes);
+app.use('/api', me);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
