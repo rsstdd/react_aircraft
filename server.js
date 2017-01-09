@@ -1,5 +1,3 @@
-'use strict';
-
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -24,6 +22,21 @@ switch (app.get('env')) {
 
   default:
 }
+
+const passport = require('passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Arduino board connection
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -75,6 +88,10 @@ app.use((err, _req, res, _next) => {
   console.error(err.stack);
   res.sendStatus(500);
 });
+
+console.log('______________________|==========|__________________________');
+console.log('______________________|--SERVER--|__________________________');
+console.log('______________________|==========|__________________________');
 
 const port = process.env.PORT || 8000;
 
