@@ -7,7 +7,7 @@ export default class Nav extends React.Component {
     return (
       <div className="row">
         <ul className="nav">
-          <img src="./images/aircraft_logo.png" />
+          {/* <img src="./../images/aircraft_logo.png" /> */}
           <li><a href="#">Home</a></li>
           <li><a href="#">Collection</a></li>
           <li><a href="#">Login</a></li>

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router';
 import Main from './Main';
-import Nav from './Nav';
+import Nav from './layout/Nav';
 import Modal from './Modal';
 
 export default class App extends React.Component {
@@ -81,18 +81,12 @@ export default class App extends React.Component {
   // }
 
   render() {
-    console.log(this.state.user);
-    // console.log(this.state.aircraft);
-    // console.log(this.state.favorites);
-
     return (
       <BrowserRouter>
         <div>
-          <Nav />
-          {/* <Main /> */}
-          <Modal></Modal>
+          <Main />
         </div>
       </BrowserRouter>
     );
   }
-};
+}
