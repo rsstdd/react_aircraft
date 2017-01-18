@@ -28,8 +28,6 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Arduino board connection
-
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -45,6 +43,12 @@ const path = require('path');
 
 app.use(express.static(path.join('public')));
 
+const users = require('./routes/users');
+const auth = require('./routes/auth');
+const favorites = require('./routes/favorites');
+const airplanes = require('./routes/airplanes');
+const me = require('./routes/me');
+
 app.use((req, res, next) => { // starts with api or the path is not specified. protection against js insertion attacks
   if (!req.path.startsWith('/api') || /json/.test(req.get('Accept'))) { // getting a header and ensuring that you're getting JSON from the server
     return next();
@@ -53,14 +57,8 @@ app.use((req, res, next) => { // starts with api or the path is not specified. p
   res.sendStatus(406);
 });
 
-const users = require('./routes/users');
-const auth = require('./routes/auth');
-const favorites = require('./routes/favorites');
-const airplanes = require('./routes/airplanes');
-const me = require('./routes/me');
-
 app.use('/api', users);
-app.use('/auth', auth);
+app.use('/api', auth);
 app.use('/api', favorites);
 app.use('/api', airplanes);
 app.use('/api', me);
