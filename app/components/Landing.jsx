@@ -1,14 +1,16 @@
+import { AppBar, FlatButton } from 'material-ui';
+import Header from './Header'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from './layout/Nav'
 
 export default class Main extends React.Component {
 
   render() {
     return (
       <div>
-        <Nav />
-        {/* <p>
+        <Header />
+        <p>
           Helicopters have been thought about, as well as dreamt about, for at least 500 years.
            In 1486 Leonardo da Vinci, was believed to be, the first person to design a helicopter.
            It took however almost 450 years to build a working and practical helicopter.
@@ -21,7 +23,7 @@ export default class Main extends React.Component {
 
         <p>During the Vietnam war helicopters were invaluable in fighting the Viet Cong and the North Vietnamese army. These two groups were at best irregular forces (did not fight in open warfare, guerrillas). Helicopters began expanding from their previous role of transportation, to become not only taxis, but also gunships, airborne command centers as well as their earlier roles of aerial ambulances.</p>
 
-        <p>After the close of the hostilities in Vietnam, helicopters began to take on more and more civilian roles, including police and hospital work, as well as, used by news teams. By the early 90's, helicopters were also being used for tours of remote places.</p> */}
+        <p>After the close of the hostilities in Vietnam, helicopters began to take on more and more civilian roles, including police and hospital work, as well as, used by news teams. By the early 90's, helicopters were also being used for tours of remote places.</p>
       </div>
     );
   }

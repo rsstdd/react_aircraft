@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router';
 import Main from './Main';
-import Nav from './layout/Nav';
-import Modal from './Modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,22 +17,22 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // axios.get('/api/me') // isLoggedIn then user info
-    //   .then((res) => {
-    //     this.setState({
-    //       isLoggedIn: true,
-    //       userId: res.data.id,
-    //       user: res.data
-    //     });
-    //   })
-    //   .then(() => {
-    //     this.getAircraft();
-    //     this.getFavorites(this.state.userId);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     this.setState({ isLoggedIn: false });
-    //   });
+    axios.get('/api/me') // isLoggedIn then user info
+      .then((res) => {
+        this.setState({
+          isLoggedIn: true,
+          userId: res.data.id,
+          user: res.data
+        });
+      })
+      .then(() => {
+        this.getAircraft();
+        this.getFavorites(this.state.userId);
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ isLoggedIn: false });
+      });
     axios.get('/api/airplanes')
       .then((res) => {
         console.log(res);
@@ -44,20 +42,20 @@ export default class App extends React.Component {
       });
   }
 
-  // authenticateUser(email, password) {
-  //   axios.post('api/me', { email, password })
-  //   .then((res) => {
-  //     this.getCookie();
-  //     this.setState({
-  //       isLoggedIn: true,
-  //       userId: res.data.id,
-  //       user: res.data
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  // }
+  authenticateUser(email, password) {
+    axios.post('api/me', { email, password })
+    .then((res) => {
+      this.getCookie();
+      this.setState({
+        isLoggedIn: true,
+        userId: res.data.id,
+        user: res.data
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   logOut() {
     console.log('Main');
@@ -70,15 +68,15 @@ export default class App extends React.Component {
     });
   }
 
-  // getAircraft() {
-  //   axios.get('/api/airplanes')
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
+  getAircraft() {
+    axios.get('/api/airplanes')
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (

@@ -10,7 +10,7 @@ export default class Main extends React.Component {
   render() {
     return (
 
-      <div>
+      <main>
         <Match
           pattern="/" exactly render={
           () => (
@@ -37,13 +37,13 @@ export default class Main extends React.Component {
             )}
         />
 
-    <Collection
-      handleLoginState={this.handleLoginState}
-      logOut={this.logOut}
-      {...this.state}
-    />
+        <Collection
+          handleLoginState={this.handleLoginState}
+          logOut={this.logOut}
+          {...this.state}
+        />
 
-      </div>
+      </main>
     );
   }
 }
