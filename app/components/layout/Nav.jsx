@@ -5,15 +5,33 @@ import { Link } from 'react-router';
 export default class Nav extends React.Component {
   render() {
     return (
-      <div className="row">
-        <ul className="nav">
-          {/* <img src="./../images/aircraft_logo.png" /> */}
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Collection</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li className="active">Active</li>
-        </ul>
+      <div>
+        <nav role="navigation" id="nav">
+          <input className="trigger" type="checkbox" id="mainNavButton" />
+          <label htmlFor="mainNavButton">Menu</label>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a>
+              <ul>
+                <li><a href="#">Sub Nav Item</a></li>
+                <li><a href="#">Sub Nav Item</a>
+                  <ul>
+                    <li><a href="#">Sub Sub Nav Item</a></li>
+                    <li><a href="#">Sub Sub Nav Item</a></li>
+                    <li><a href="#">Sub Sub Nav Item</a></li>
+                    <li><a href="#">Sub Sub Nav Item</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Sub Nav Item</a></li>
+                <li><a href="#">Sub Nav Item</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Specials</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
       </div>
     );
   }
