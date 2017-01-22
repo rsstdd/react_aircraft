@@ -12,9 +12,9 @@ const validations = require('../validations/airplanes');
 const router = express.Router();
 
 router.get('/airplanes', (_req, res, next) => {
-  console.log('______________________|==========|__________________________');
-  console.log('______________________|--Router--|__________________________');
-  console.log('______________________|==========|__________________________');
+  console.log('______________________|=============|__________________________');
+  console.log('______________________|--Airplanes--|__________________________');
+  console.log('______________________|=============|__________________________');
 
   knex('airplanes')
     .orderBy('name')
