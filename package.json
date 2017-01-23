@@ -11,10 +11,9 @@
   "scripts": {
     "deploy": "rm -rf public; brunch build --production; surge public",
     "lint": "eslint  --ignore-pattern public/js/vendor",
+    "heroku-postbuild": "brunch build --production; knex migrate:latest",
     "start": "brunch watch --server",
-    "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest",
-    "nf": "nf start"
+    "knex": "knex"
   },
   "dependencies": {
     "axios": "^0.15.3",

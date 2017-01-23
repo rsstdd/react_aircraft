@@ -64,14 +64,15 @@ export default class App extends React.Component {
       this.setState({
         isLoggedIn: false,
         user: []
-      })
+      });
     });
   }
 
   getAircraft() {
     axios.get('/api/airplanes')
       .then((res) => {
-        console.log(res);
+        this.setState({ aircraft: res.data });
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

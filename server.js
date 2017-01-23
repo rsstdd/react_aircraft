@@ -43,22 +43,23 @@ const path = require('path');
 
 app.use(express.static(path.join('public')));
 
-console.log('hello');
+// // CSRF protection
+// starts with api or the path is not specified.
+// protection against js insertion attacks
+// getting a header and ensuring that you're getting JSON from the server
+app.use((req, res, next) => {
+  if (!req.path.startsWith('/api') || /json/.test(req.get('Accept'))) {
+    return next();
+  }
+
+  res.sendStatus(406);
+});
 
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const favorites = require('./routes/favorites');
 const airplanes = require('./routes/airplanes');
 const me = require('./routes/me');
-
-// // CSRF protection
-app.use((req, res, next) => { // starts with api or the path is not specified. protection against js insertion attacks
-  if (!req.path.startsWith('/api') || /json/.test(req.get('Accept'))) { // getting a header and ensuring that you're getting JSON from the server
-    return next();
-  }
-
-  res.sendStatus(406);
-});
 
 app.use('/api', users);
 app.use('/api', auth);

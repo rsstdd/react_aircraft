@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const boom = require('boom');
 const knex = require('../knex');
@@ -12,10 +10,6 @@ const validations = require('../validations/airplanes');
 const router = express.Router();
 
 router.get('/airplanes', (_req, res, next) => {
-  console.log('______________________|=============|__________________________');
-  console.log('______________________|--Airplanes--|__________________________');
-  console.log('______________________|=============|__________________________');
-
   knex('airplanes')
     .orderBy('name')
     .then((rows) => {
