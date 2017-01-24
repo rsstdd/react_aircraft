@@ -41,19 +41,7 @@ app.use(cookieParser());
 
 const path = require('path');
 
-app.use(express.static(path.join('public')));
-
-// // CSRF protection
-// starts with api or the path is not specified.
-// protection against js insertion attacks
-// getting a header and ensuring that you're getting JSON from the server
-app.use((req, res, next) => {
-  if (!req.path.startsWith('/api') || /json/.test(req.get('Accept'))) {
-    return next();
-  }
-
-  res.sendStatus(406);
-});
+// app.use(express.static(path.join('public')));
 
 const users = require('./routes/users');
 const auth = require('./routes/auth');
@@ -67,8 +55,16 @@ app.use('/api', favorites);
 app.use('/api', airplanes);
 app.use('/api', me);
 
-app.use((_req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// // CSRF protection
+// starts with api or the path is not specified.
+// protection against js insertion attacks
+// getting a header and ensuring that you're getting JSON from the server
+app.use((req, res, next) => {
+  if (!req.path.startsWith('/api') || /json/.test(req.get('Accept'))) {
+    return next();
+  }
+
+  res.sendStatus(406);
 });
 
 app.use((err, _req, res, _next) => {
@@ -91,6 +87,12 @@ app.use((err, _req, res, _next) => {
   res.sendStatus(500);
 });
 
+app.use(express.static(path.join('public')));
+
+app.use((_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 console.log('______________________|==========|__________________________');
 console.log('______________________|--SERVER--|__________________________');
 console.log('______________________|==========|__________________________');
@@ -100,7 +102,7 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
     // eslint-disable-next-line no-console
-    console.log(`Listening on port ${port}`);
+    console.log(`---------------Listening on port ${port}----------------------`);
   }
 });
 

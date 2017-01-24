@@ -2,7 +2,7 @@
   "name": "react_aircraft",
   "version": "0.1.0",
   "author": "Ross Todd <rosstod@gmail.com>",
-  "description": "Ryan Sobol's React skeleton for Brunch",
+  "description": "",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "deploy": "rm -rf public; brunch build --production; surge public",
     "lint": "eslint  --ignore-pattern public/js/vendor",
     "heroku-postbuild": "brunch build --production; knex migrate:latest",
-    "start": "brunch watch --server",
+    "start": "nodemon server.js",
     "knex": "knex"
   },
   "dependencies": {
