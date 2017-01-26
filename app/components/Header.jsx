@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 // };
 
 const Header = () => (
-  <div>
+  <div id="header">
     <AppBar
       showMenuIconButton={false}
       title="react_aircraft"

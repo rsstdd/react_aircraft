@@ -12,7 +12,7 @@
     "deploy": "rm -rf public; brunch build --production; surge public",
     "lint": "eslint  --ignore-pattern public/js/vendor",
     "heroku-postbuild": "brunch build --production; knex migrate:latest",
-    "start": "nodemon server.js",
+    "start": "brunch watch --server",
     "knex": "knex"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0-alpha.6",
+    "react-tap-event-plugin": "^2.0.1",
     "request": "^2.79.0"
   },
   "devDependencies": {

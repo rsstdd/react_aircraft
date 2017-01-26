@@ -6,6 +6,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { blueGrey400 } from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {

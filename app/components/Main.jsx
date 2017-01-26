@@ -15,9 +15,11 @@ export default class Main extends React.Component {
           pattern="/" exactly render={
           () => (
             <Landing
+              closeModal={this.props.closeModal}
+              openModal={this.props.openModal}
               handleLoginState={this.handleLoginState}
-              closeModal={this.closeModal}
-              openModal={this.openModal}
+              handleClose={this.props.handleClose}
+              handleOpen={this.props.handleOpen}
               {...this.state}
             />
           )}
