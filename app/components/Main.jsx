@@ -20,6 +20,7 @@ export default class Main extends React.Component {
               handleLoginState={this.handleLoginState}
               handleClose={this.props.handleClose}
               handleOpen={this.props.handleOpen}
+              airplanes={this.props.airplanes}
               {...this.state}
             />
           )}
@@ -40,7 +41,7 @@ export default class Main extends React.Component {
         />
 
         <Collection
-          aircraft={this.props.aircraft}
+          airplanes={this.props.airplanes}
           handleLoginState={this.handleLoginState}
           logOut={this.logOut}
         />

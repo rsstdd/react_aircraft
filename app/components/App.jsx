@@ -12,7 +12,7 @@ export default class App extends React.Component {
       open: false,
       userId: 0,
       user: [],
-      aircraft: [],
+      airplanes: [],
       favorites: []
     };
   }
@@ -38,10 +38,10 @@ export default class App extends React.Component {
     axios.get('/api/airplanes')
       .then((res) => {
         console.log(res.data);
-        this.setState({ aircraft: res.data });
+        this.setState({ airplanes: res.data });
       })
       .catch((err) => {
-        console.err(err);
+        console.log(err);
       });
   }
 
@@ -56,7 +56,7 @@ export default class App extends React.Component {
       });
     })
     .catch((err) => {
-      console.err(err);
+      console.log(err);
     });
   }
 
