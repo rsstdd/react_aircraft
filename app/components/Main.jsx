@@ -40,9 +40,9 @@ export default class Main extends React.Component {
         />
 
         <Collection
+          aircraft={this.props.aircraft}
           handleLoginState={this.handleLoginState}
           logOut={this.logOut}
-          {...this.state}
         />
 
       </main>

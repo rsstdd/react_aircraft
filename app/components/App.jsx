@@ -37,7 +37,7 @@ export default class App extends React.Component {
 
     axios.get('/api/airplanes')
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         this.setState({ aircraft: res.data });
       })
       .catch((err) => {

@@ -3,6 +3,7 @@ import Header from './Header'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Match, Link, Redirect } from 'react-router';
 
 export default class Main extends React.Component {
 
@@ -30,7 +31,6 @@ export default class Main extends React.Component {
     ];
 
     return (
-      console.log(this.props.open)
       <div>
         <Header />
         <div className="container">
@@ -39,7 +39,9 @@ export default class Main extends React.Component {
               <h1>A Brief History of Rotary Aircraft</h1>
               <h5 className="center">Register to Start Your Own Collection</h5>
               <input type="submit" label="Dialog" onClick={this.handleOpenEvent} value="Login or Register" />
-              <input type="button" value="See The Collection" />
+              <Link to='/collection'>
+                <input type="button" label="See The Collection" onClick={this.handleOpenEvent} value="Login or Register" />
+              </Link>
             </div>
               <Dialog
                 title="Dialog With Actions"
@@ -53,7 +55,7 @@ export default class Main extends React.Component {
           </div>
           <div className="row">
             <div className="one-half column">
-              <img className="img hide-on-med u-max-full-width" src="http://www.rotaryaction.com/images/1stcopter.jpg" alt="F4U Corsair" />
+              <img className="img hide-on-med u-max-full-width" src="http://www.rotaryaction.com/images/1stcopter.jpg" alt="" />
               <p>
                 Helicopters have been thought about, as well as dreamt about, for at least 500 years.
                  In 1486 Leonardo da Vinci, was believed to be, the first person to design a helicopter.
