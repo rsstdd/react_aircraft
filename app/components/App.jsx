@@ -1,7 +1,7 @@
-import React from 'react';
-import axios from 'axios';
 import { BrowserRouter } from 'react-router';
+import axios from 'axios';
 import Main from './Main';
+import React from 'react';
 
 export default class App extends React.Component {
   constructor(props) {

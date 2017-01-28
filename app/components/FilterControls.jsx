@@ -9,9 +9,9 @@ export default class FilterControls extends React.Component {
   }
 
   handleSearch(event) {
-    // const searchText = event.target.value;
-    console.log(event.target.value);
-    this.props.handleSearch(event.target.value);
+    const searchText = event.target.value;
+
+    this.props.handleSearch(searchText);
   }
 
   // handleSort(event) {

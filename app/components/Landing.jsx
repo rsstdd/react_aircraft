@@ -6,9 +6,16 @@ import ReactDOM from 'react-dom';
 import { Match, Link, Redirect } from 'react-router';
 
 export default class Main extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.openEvent = this.handleOpenEvent.bind(this);
+  //   this.handleCloseEvnent = this.handleCloseEvnent.bind(this);
+  //   this.authenticateUser = this.authenticateUser.bind(this);
+  // }
 
   handleOpenEvent() {
-    this.props.handleOpen();
+    window.location.href='auth/google';
   }
 
   handleCloseEvnent() {
@@ -40,7 +47,7 @@ export default class Main extends React.Component {
               <h5 className="center">Register to Start Your Own Collection</h5>
               <input type="submit" label="Dialog" onClick={this.handleOpenEvent} value="Login or Register" />
               <Link to='/collection'>
-                <input type="button" label="See The Collection" onClick={this.handleOpenEvent} value="Login or Register" />
+                <input type="button" label="See The Collection" onClick={this.handleOpenEvent} value="Seee the Collection" />
               </Link>
             </div>
               <Dialog
