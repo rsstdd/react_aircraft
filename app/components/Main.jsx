@@ -15,13 +15,13 @@ export default class Main extends React.Component {
           pattern="/" exactly render={
           () => (
             <Landing
-              closeModal={this.props.closeModal}
-              openModal={this.props.openModal}
-              handleLoginState={this.handleLoginState}
-              handleClose={this.props.handleClose}
-              handleOpen={this.props.handleOpen}
-              airplanes={this.props.airplanes}
               {...this.state}
+              airplanes={this.props.airplanes}
+              closeModal={this.props.closeModal}
+              handleClose={this.props.handleClose}
+              handleLoginState={this.handleLoginState}
+              handleOpen={this.props.handleOpen}
+              openModal={this.props.openModal}
             />
           )}
         />
@@ -33,19 +33,23 @@ export default class Main extends React.Component {
               <Redirect to="/" />
             ) : (
               <Favorites
+                {...this.state}
                 handleLoginState={this.handleLoginState}
                 logOut={this.logOut}
-                {...this.state}
               />)
             )}
         />
 
-        <Collection
-          airplanes={this.props.airplanes}
-          handleLoginState={this.handleLoginState}
-          logOut={this.logOut}
+        <Match
+          pattern="/collection" exactly render={
+          () => (
+            <Collection
+              airplanes={this.props.airplanes}
+              handleLoginState={this.handleLoginState}
+              logOut={this.logOut}
+            />
+          )}
         />
-
       </main>
     );
   }
