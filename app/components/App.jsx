@@ -10,7 +10,7 @@ export default class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       open: false,
-      userId: 0,
+      userId: '',
       user: [],
       airplanes: [],
       favorites: []
@@ -28,7 +28,7 @@ export default class App extends React.Component {
       })
       .then(() => {
         console.log(this.state.userId);
-        this.getFavorites(this.state. userId);
+        this.getFavorites(this.state.userId);
       })
       .catch((err) => {
         console.log(err);
@@ -76,7 +76,7 @@ export default class App extends React.Component {
         this.setState({ favorites: res.data });
       })
       .catch((err) => {
-        console.err(err);
+        console.log(err);
       });
   }
 
@@ -89,6 +89,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <BrowserRouter>
         <div>

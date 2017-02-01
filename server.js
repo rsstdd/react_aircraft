@@ -50,7 +50,7 @@ const airplanes = require('./routes/airplanes');
 const me = require('./routes/me');
 
 app.use('/api', users);
-app.use('/api', auth);
+app.use('/auth', auth);
 app.use('/api', favorites);
 app.use('/api', airplanes);
 app.use('/api', me);
@@ -102,7 +102,7 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
     // eslint-disable-next-line no-console
-    console.log(`---------------Listening on port ${port}----------------------`);
+    console.log(`Listening on port ${port}`);
   }
 });
 

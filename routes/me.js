@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const knex = require('../knex');
 const boom = require('boom');
@@ -17,11 +15,11 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/me', authorize, (req, res, next) => {
-  console.log('######### get/me #######');
-  console.log(req.token);
   let { userId } = req.token;
   let user;
-  userId = parseInt(userId)
+
+  userId = userId.slice(5);
+
   console.log(userId);
 
   knex('users')
