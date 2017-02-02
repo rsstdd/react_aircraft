@@ -32,6 +32,7 @@ router.get('/me', authorize, (req, res, next) => {
     user = camelizeKeys(row);
 
     res.send(user);
+    console.log(user);
   })
     .catch((err) => {
       next(err);

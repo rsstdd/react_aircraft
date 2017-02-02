@@ -8,9 +8,9 @@ exports.up = function(knex) {
       .inTable('airplanes')
       .onDelete('CASCADE')
       .index();
-    table.integer('user_id')
+    table.string('user_id')
       .notNullable()
-      .references('id')
+      .references('auth_id')
       .inTable('users')
       .onDelete('CASCADE')
       .index();
