@@ -36,19 +36,23 @@ router.get('/google/callback',
       name
     };
 
-    console.log('AuthId', authId);
+    console.log(newUser);
+    // newUser.userId = userId.slice(5);
+    console.log('AuthId ------------- ', authId);
+    // newUser.authId = newUser.authId.toString();
+    console.log( 'AuthId ------------- ', authId);
 
     knex('users')
       .where('auth_id', authId)
       .select(knex.raw('1=1'))
       .then((row) => {
         if (!row) {
-          // const newUser = {
-          //   email,
-          //   avatarUrl,
-          //   authId,
-          //   name
-          // };
+          const newUser = {
+            email,
+            avatarUrl,
+            authId,
+            name
+          };
 
           knex('users').insert(decamelizeKeys(newUser), '*')
           .then((users) => {
@@ -70,7 +74,7 @@ router.get('/google/callback',
 
         res.cookie('loggedIn', 'true');
         res.cookie('user', newUser);
-        res.redirect('/');
+        res.redirect('/collection');
       })
       .catch((err) => {
         next(err);

@@ -56,8 +56,6 @@ export default class Collection extends React.Component {
   }
 
   render() {
-    console.log(this.props.airplanes);
-
     return (
       <div>
         <Header />

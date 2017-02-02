@@ -19,7 +19,6 @@ export default class FilterControls extends React.Component {
   // }
 
   render() {
-    console.log(this.handlesearch);
     return (
       <div className="container">
         <div className="row">

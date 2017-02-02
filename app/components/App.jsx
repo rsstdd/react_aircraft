@@ -27,7 +27,6 @@ export default class App extends React.Component {
         });
       })
       .then(() => {
-        console.log(this.state.userId);
         this.getFavorites(this.state.userId);
       })
       .catch((err) => {
@@ -72,7 +71,6 @@ export default class App extends React.Component {
   getFavorites() {
     axios.get('/api/favorites')
       .then((res) => {
-        // console.log(res.data);
         this.setState({ favorites: res.data });
       })
       .catch((err) => {
@@ -89,7 +87,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
+    console.log(this.state.userId);
     return (
       <BrowserRouter>
         <div>

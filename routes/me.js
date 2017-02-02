@@ -18,9 +18,7 @@ router.get('/me', authorize, (req, res, next) => {
   let { userId } = req.token;
   let user;
 
-  userId = userId.slice(5);
-
-  console.log(userId);
+  userId = parseInt(userId);
 
   knex('users')
   .where('auth_id', userId)
