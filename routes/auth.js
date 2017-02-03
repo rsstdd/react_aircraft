@@ -20,7 +20,7 @@ router.get('/google',
   passport.authenticate('google', {
     scope: ['email', 'profile', 'https://www.googleapis.com/auth/plus.login']
   }), (req, res, _next) => {
-    console.log(res);
+    console.log(json.stringify(req));
   });
 
 router.get('/google/callback',
@@ -36,17 +36,11 @@ router.get('/google/callback',
       name
     };
 
-    console.log(newUser);
-    // newUser.userId = userId.slice(5);
-    console.log('AuthId ------------- ', authId);
-    // newUser.authId = newUser.authId.toString();
-    console.log( 'AuthId ------------- ', authId);
-
     knex('users')
       .where('auth_id', authId)
       .select(knex.raw('1=1'))
-      .then((row) => {
-        if (!row) {
+      .then((result) => {
+        if (!result) {
           const newUser = {
             email,
             avatarUrl,
@@ -56,6 +50,7 @@ router.get('/google/callback',
 
           knex('users').insert(decamelizeKeys(newUser), '*')
           .then((users) => {
+
             return users;
           })
           .catch((err) => {

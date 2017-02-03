@@ -20,9 +20,10 @@ export default class App extends React.Component {
   componentDidMount() {
     axios.get('/api/me') // isLoggedIn then user info
       .then((res) => {
+        console.log(res.data);
         this.setState({
           isLoggedIn: true,
-          userId: res.data.id,
+          userId: res.data.authId,
           user: res.data
         });
       })
@@ -46,7 +47,6 @@ export default class App extends React.Component {
   authenticateUser(email, password) {
     axios.post('api/me', { email, password })
     .then((res) => {
-      this.getCookie();
       this.setState({
         isLoggedIn: true,
         userId: res.data.id,
@@ -87,7 +87,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log('App: State --> ', this.state.userId);
+    console.log('App: UserId --> ', this.state.userId);
+    console.log('App: favs --> ', this.state.favorites);
     return (
       <BrowserRouter>
         <div>

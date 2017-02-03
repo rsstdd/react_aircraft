@@ -15,10 +15,12 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/me', authorize, (req, res, next) => {
+  console.log('######### get/me #######');
+  console.log(req.token);
   let { userId } = req.token;
   let user;
 
-  userId = parseInt(userId);
+  console.log('userId', userId);
 
   knex('users')
   .where('auth_id', userId)
@@ -31,8 +33,8 @@ router.get('/me', authorize, (req, res, next) => {
 
     user = camelizeKeys(row);
 
+    console.log('me:', user);
     res.send(user);
-    console.log(user);
   })
     .catch((err) => {
       next(err);
