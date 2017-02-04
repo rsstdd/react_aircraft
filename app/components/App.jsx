@@ -87,7 +87,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log('App: UserId --> ', this.state.userId);
+    // console.log('App: UserId --> ', this.state.userId);
     console.log('App: favs --> ', this.state.favorites);
     return (
       <BrowserRouter>
